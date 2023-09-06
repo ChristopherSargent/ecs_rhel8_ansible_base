@@ -1,0 +1,9 @@
+# Ansible base roles for PreStaging Christopher Sargent 09062023
+---
+  - name: Install Docker-CE
+    hosts: all
+    gather_facts: yes
+    become_user: root
+    tasks:
+      - include_role:
+          name: docker

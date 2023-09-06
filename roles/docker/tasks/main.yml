@@ -1,0 +1,45 @@
+---
+# Install docker-ce and configure for specific version with specific mount path c.sargent-ctr@ecstech.com 09062023
+
+- name: Create docker default directory
+  file:
+    path: /data
+    state: present
+
+- name: Increase rootlv
+  shell: lvextend -r -L +20G /dev/rootvg/rootlv
+
+- name: install yum repo
+  copy:
+    src: docker-ce.repo
+    dest: /etc/yum.repos.d/docker-ce.repo
+    owner: root
+    group: root
+    mode: 0644
+    when: ansible_distribution == 'RedHat'
+
+- name: load vars file
+  include_vars: "{{ ansible_disrtibution }}"
+
+- name: install docker packages
+  ansible.builtin.package:
+    name: "{{ docker_packages }}"
+    state: present
+
+- name: update docker config file
+  copy:
+    dest: /etc/docker/daemon.json
+    content: "{{ docker_daemon_varibles | to_nice_json }}"
+    notify: "restart docker"
+
+- meta: flush_handlers
+
+- name: enable docker service
+  service:
+    name: docker
+    enabled: yes
+    state: started
+
+
+
+
