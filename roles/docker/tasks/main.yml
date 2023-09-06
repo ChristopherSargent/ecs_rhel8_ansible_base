@@ -37,15 +37,8 @@
 - name: daemon-reload
   shell: systemctl daemon-reload
 
-- name: Sleep for 30 seconds and continue with play
-  wait_for:
-   timeout: 30
-
-- name: start docker service
-  service:
-    name: docker
-    enabled: yes
-    state: started
+- name: daemon-reload
+  shell: systemctl start docker
 
 - name: Copy dnf.conf to client
   copy: src=dnf.conf  dest=/etc/dnf mode=0644
