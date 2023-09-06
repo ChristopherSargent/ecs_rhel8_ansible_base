@@ -33,7 +33,6 @@
     owner: root
     group: root
     mode: 0644
-    notify: "restart docker"
 
 - meta: flush_handlers
 
