@@ -38,10 +38,11 @@
   shell: |
     systemctl daemon-reload
 
-- name: Enable and start docker
-  shell: |
-    systemctl enable
-    systemctl start docker
+- name: Start docker service
+  ansible.builtin.service:
+    name: docker
+    state: started
+    enabled: yes
 
 - name: Copy dnf.conf to client
   copy: src=dnf.conf  dest=/etc/dnf mode=0644
