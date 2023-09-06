@@ -40,6 +40,9 @@
     enabled: yes
     state: started
 
+- name: Copy dnf.conf to client
+  copy: src=dnf.conf  dest=/etc/dnf mode=0644
+
 
 
 

@@ -1,3 +1,5 @@
+![alt text](ecs.logo.JPG)
+* This repository contains ansible roles to apply to hardened RHEL8 ec2 post deployment. For any additional details or inquiries, please contact us at csargent-ctr@ecstech.com.
 
 # Configure GIT for Test ansible project to show Docker version
 1. ssh christopher.sargent@ps-awx01-terraform-nlb-71fdcacfa59d60d0.elb.us-gov-west-1.amazonaws.com
