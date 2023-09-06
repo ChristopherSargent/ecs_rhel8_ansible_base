@@ -19,7 +19,7 @@
   when: ansible_distribution == 'RedHat'
 
 - name: load vars file
-  include_vars: "{{ ansible_disrtibution }}"
+  include_vars: "{{ ansible_distribution }}"
 
 - name: install docker packages
   ansible.builtin.package:
@@ -29,7 +29,7 @@
 - name: update docker config file
   copy:
     dest: /etc/docker/daemon.json
-    content: "{{ docker_daemon_varibles | to_nice_json }}"
+    content: "{{ docker_daemon_variables | to_nice_json }}"
     notify: "restart docker"
 
 - meta: flush_handlers
