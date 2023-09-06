@@ -34,11 +34,14 @@
     group: root
     mode: 0644
 
-- name: daemon-reload
-  shell: systemctl daemon-reload
+- name: Reload daemon
+  shell: |
+    systemctl daemon-reload
 
-- name: daemon-reload
-  shell: systemctl start docker
+- name: Enable and start docker
+  shell: |
+    systemctl enable
+    systemctl start docker
 
 - name: Copy dnf.conf to client
   copy: src=dnf.conf  dest=/etc/dnf mode=0644
