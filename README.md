@@ -2,9 +2,9 @@
 * This repository contains ansible roles to apply to hardened RHEL8 ec2 post deployment. For any additional details or inquiries, please contact us at csargent-ctr@ecstech.com.
 
 # Configure GIT for Test ansible project to show Docker version
-1. ssh christopher.sargent@ps-awx01-terraform-nlb-71fdcacfa59d60d0.elb.us-gov-west-1.amazonaws.com
-2. git config --global user.name "Chris Sargent"
-3. git config --global user.email "chris.sargent-CTR@ecstech.com"
-4. git clone https://bitbucket.cdmdashboard.com/scm/dbops/ansible_rhel8_verify.git
-5. cd /home/christopher.sargent/ansible_rhel8_verify/ansible/ansible_rhel8_verify
-6. sudo ansible-playbook -i "localhost," -c local ansible_rhel8_verify.yml -vvv
+1. ssh or console to EC2
+2. sudo -i 
+3. cd /root
+4. git clone https://github.com/ChristopherSargent/ecs_rhel8_ansible_base.git
+5. cd cd ecs_rhel8_ansible_base
+6. ansible-playbook -i "localhost," -c local rhel8_ansible_base.yml -vvv

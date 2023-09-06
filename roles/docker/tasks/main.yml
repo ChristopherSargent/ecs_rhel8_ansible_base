@@ -4,7 +4,7 @@
 - name: Create docker default directory
   file:
     path: /data
-    state: present
+    state: directory
 
 - name: Increase rootlv
   shell: lvextend -r -L +20G /dev/rootvg/rootlv
