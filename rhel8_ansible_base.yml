@@ -2,7 +2,7 @@
 ---
   - name: Install Docker-CE
     hosts: all
-    gather_facts: yes
+    gather_facts: true 
     become_user: root
     tasks:
       - include_role:
