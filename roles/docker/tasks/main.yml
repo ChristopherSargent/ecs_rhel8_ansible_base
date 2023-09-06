@@ -29,7 +29,7 @@
 - name: update docker config file
   copy: 
     src: daemon.json  
-    dest=: etc/docker/daemon.json 
+    dest=: /etc/docker/daemon.json 
     owner: root
     group: root
     mode: 0644
