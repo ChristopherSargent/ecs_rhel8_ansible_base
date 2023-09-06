@@ -34,11 +34,15 @@
     group: root
     mode: 0644
 
-- name: Just force systemd to reread configs (2.4 and above)
+- name: Just force systemd daemon-reload
   ansible.builtin.systemd:
     daemon_reload: true
 
-- meta: flush_handlers
+- name: start docker service
+  service:
+    name: docker
+    enabled: yes
+    state: started
 
 - name: enable docker service
   service:
