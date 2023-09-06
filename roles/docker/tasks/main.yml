@@ -38,6 +38,10 @@
   ansible.builtin.systemd:
     daemon_reload: true
 
+- name: Sleep for 10 seconds and continue with play
+  wait_for:
+   timeout: 10
+
 - name: start docker service
   service:
     name: docker
