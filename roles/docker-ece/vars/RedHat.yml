@@ -1,0 +1,9 @@
+---
+
+docker_packages:
+  - docker-ce-20.10.24-3.el8
+  - docker-ce-cli-20.10.24-3.el8
+  - containerd.io
+  - docker-buildx-plugin
+  - docker-compose-plugin
+

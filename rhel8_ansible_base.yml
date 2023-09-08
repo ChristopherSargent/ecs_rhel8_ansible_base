@@ -1,4 +1,5 @@
-# Ansible base roles for PreStaging Christopher Sargent 09062023
+# Ansible base roles for PreStaging Christopher Sargent 09082023
+# include docker for version 23.0.6 or docker-ece for version 20.10.24
 ---
   - name: Install Docker-CE
     hosts: all
