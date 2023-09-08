@@ -6,7 +6,7 @@
     path: /data
     state: directory
 
-- name: install yum repo
+- name: Install yum repo
   copy:
     src: docker-ce.repo
     dest: /etc/yum.repos.d/docker-ce.repo
@@ -15,15 +15,15 @@
     mode: 0644
   when: ansible_distribution == 'RedHat'
 
-- name: load vars file
+- name: Load vars file
   include_vars: RedHat.yml
 
-- name: install docker packages
+- name: Install docker packages
   ansible.builtin.package:
     name: "{{ docker_packages }}"
     state: present
 
-- name: update docker config file
+- name: Update docker config file
   copy: 
     src: daemon.json  
     dest: /etc/docker/daemon.json 
