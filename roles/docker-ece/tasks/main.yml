@@ -14,7 +14,6 @@
     group: root
     mode: 0644
   when: ansible_distribution == 'RedHat'
-
 - name: load vars file
   include_vars: RedHat.yml
 
@@ -23,10 +22,15 @@
     name: "{{ docker_packages }}"
     state: present
 
+- name: Create /etc/docker directory
+  file:
+    path: /etc/docker
+    state: directory
+
 - name: update docker config file
-  copy: 
-    src: daemon.json  
-    dest: /etc/docker/daemon.json 
+  copy:
+    src: daemon.json
+    dest: /etc/docker/daemon.json
     owner: root
     group: root
     mode: 0644
@@ -43,7 +47,3 @@
 
 - name: Copy dnf.conf to client
   copy: src=dnf.conf  dest=/etc/dnf mode=0644
-
-
-
-
