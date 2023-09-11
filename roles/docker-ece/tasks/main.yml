@@ -3,7 +3,7 @@
 
 - name: Create docker default directory
   file:
-    path: /data
+    path: /mnt/data
     state: directory
 
 - name: Install yum repo
